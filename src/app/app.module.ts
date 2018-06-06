@@ -17,8 +17,14 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
-import { DishService } from './services/dish.service';
+import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 
+import { DishService } from './services/dish.service';
+import { PromotionService } from './services/promotion.service';
+import { LeaderService } from './services/leader.service';
+import { LoginComponent } from './login/login.component';
+
+import:import { FormsModule } from '@angular/forms'; 
 
 @NgModule({
   declarations: [
@@ -29,17 +35,21 @@ import { DishService } from './services/dish.service';
     FooterComponent,
     AboutComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-     BrowserAnimationsModule,
+    BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    AppRoutingModule
+    AppRoutingModule,
+    Angular2FontawesomeModule,
+    FormsModule
   ],
-  providers: [DishService],
+  providers: [DishService,PromotionService,LeaderService],
+  entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

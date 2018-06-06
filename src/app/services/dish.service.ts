@@ -3,11 +3,25 @@ import { Dish } from '../shared/dish';
 import { DISHES } from '../shared/dishes';
 
 @Injectable()
-export class DishService {
+export class DishService 
+{
 
   constructor() { }
 
-  getDishes(): Dish[] {
+    getDishes(): Dish[] 
+    {
     return DISHES;
-  }
+    }
+
+    getDish(id: number): Dish 
+    {
+    return DISHES.filter((dish) => (dish.id === id))[0];
+    }
+
+    getFeaturedDish(): Dish 
+    {
+    return DISHES.filter((dish) => dish.featured)[0];
+    }
+    
 }
+
