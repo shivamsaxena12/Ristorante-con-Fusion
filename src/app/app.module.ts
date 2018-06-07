@@ -24,7 +24,8 @@ import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { LoginComponent } from './login/login.component';
 
-import:import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms'; 
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import:import { FormsModule } from '@angular/forms';
     FlexLayoutModule,
     AppRoutingModule,
     Angular2FontawesomeModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DishService,PromotionService,LeaderService],
   entryComponents: [LoginComponent],
