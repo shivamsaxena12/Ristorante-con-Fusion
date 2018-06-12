@@ -35,11 +35,12 @@ export class DishService
       .map(dishes => dishes[0]);
   }
   
-    getDishIds(): Observable<number[]> {
+    getDishIds(): Observable<any> 
+    {
     return this.getDishes()
       .map(dishes => { return dishes.map(dish => dish.id) })
       .catch(error => { return error; } );
-  }
+      }
     
 }
 
