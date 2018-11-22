@@ -22,7 +22,9 @@ import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawe
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
+import { FeedbackService } from './services/feedback.service';
 import { LoginComponent } from './login/login.component';
+
 
 import { FormsModule } from '@angular/forms'; 
 import { ReactiveFormsModule } from '@angular/forms'; 
@@ -60,7 +62,7 @@ import { HighlightDirective } from './directives/highlight.directive';
     ReactiveFormsModule,
     RestangularModule.forRoot(RestangularConfigFactory)
   ],
-  providers: [DishService,PromotionService,LeaderService,{provide: 'BaseURL', useValue: baseURL},ProcessHTTPMsgService],
+  providers: [DishService,PromotionService,LeaderService,FeedbackService,{provide: 'BaseURL', useValue: baseURL},ProcessHTTPMsgService],
   entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })

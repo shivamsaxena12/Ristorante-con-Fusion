@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Feedback, ContactType } from '../shared/feedback';
 import { flyInOut } from '../animations/app.animation';
-
+import { FeedbackService } from '../services/feedback.service';
 
 @Component({
   selector: 'app-contact',
@@ -22,7 +22,11 @@ export class ContactComponent implements OnInit {
 
   feedbackForm: FormGroup;
   feedback: Feedback;
+  fbService: FeedbackService;
+  errMess: string;
   contactType = ContactType;
+  submitform = false;
+  
   
   formErrors = {
     'firstname': '',
@@ -105,6 +109,22 @@ export class ContactComponent implements OnInit {
     {
         this.feedback = this.feedbackForm.value;
         console.log(this.feedback);
+                                                               
+        this.fbService.submitFeedback(this.feedback)
+      .subscribe(
+      fe=>{
+        //this.feedback = fe;
+        this.submitform = true;
+        
+        setTimeout(()=>{
+          
+          this.feedback=null;
+          
+        },5000)
+      },
+      errmess => { this.feedback = null; this.errMess = <any>errmess; });                                                        
+                                                                
+        
         this.feedbackForm.reset({
         firstname: '',
         lastname: '',
@@ -114,5 +134,6 @@ export class ContactComponent implements OnInit {
         contacttype: 'None',
         message: ''
     });
+    
     }
 }
